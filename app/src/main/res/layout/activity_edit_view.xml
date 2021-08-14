@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditView">
+
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+       <ImageButton
+           android:id="@+id/option"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/moreoptions"/>
+
+       <EditText
+           android:id="@+id/username"
+           android:layout_margin="20dp"
+           android:layout_width="match_parent"
+           android:hint="username"
+           android:enabled="false"
+           android:textColor="@color/black"
+           android:layout_height="wrap_content"/>
+
+       <EditText
+           android:id="@+id/email"
+           android:layout_width="match_parent"
+           android:layout_margin="20dp"
+           android:hint="email"
+           android:enabled="false"
+           android:textColor="@color/black"
+           android:layout_height="wrap_content"/>
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <androidx.appcompat.widget.AppCompatButton
+               android:id="@+id/btn_update"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_margin="20dp"
+               android:text="Update"
+               android:backgroundTint="@color/teal_200"
+               android:layout_weight="0.5"
+               android:textStyle="bold"
+               android:visibility="gone"
+               android:textSize="18dp"/>
+
+           <androidx.appcompat.widget.AppCompatButton
+               android:id="@+id/btn_delete"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_margin="20dp"
+               android:text="Delete"
+               android:textStyle="bold"
+               android:layout_weight="0.5"
+               android:visibility="gone"
+               android:textSize="18dp"/>
+
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1047745442743",
+    "firebase_url": "https://basic-cruds-default-rtdb.firebaseio.com",
+    "project_id": "basic-cruds",
+    "storage_bucket": "basic-cruds.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047745442743:android:5c57df566583c64100ae32",
+        "android_client_info": {
+          "package_name": "com.eample.my_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1047745442743-tbuc1ng3qe0nbgpdqbus79rljv1r5vlf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwVi41MGfnF3nC0PALVNjk5AUaTds9A8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1047745442743-tbuc1ng3qe0nbgpdqbus79rljv1r5vlf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
