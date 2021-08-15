@@ -6,16 +6,24 @@ public class User {
     private String username;
     private String email;
     private String id;
-
+    private String url;
 
     public User() {
     }
 
-    public User(String username, String email) {
+    public User(String username, String email,String url) {
         this.username = username;
         this.email = email;
+        this.url = url;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getUsername() {
         return username;

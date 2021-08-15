@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,6 +23,7 @@ public class EditView extends AppCompatActivity {
     ImageButton option;
     AppCompatButton update,delete;
     String pkey;
+    ImageView img_view;
     DatabaseReference databaseReference;
 
     @Override
@@ -30,6 +34,7 @@ public class EditView extends AppCompatActivity {
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         option = findViewById(R.id.option);
+        img_view = findViewById(R.id.img_view);
         update = findViewById(R.id.btn_update);
         delete = findViewById(R.id.btn_delete);
 
@@ -54,8 +59,8 @@ public class EditView extends AppCompatActivity {
                 databaseReference = FirebaseDatabase.getInstance().getReference("User").child(pkey);
                 String unme = username.getText().toString();
                 String Email = email.getText().toString();
-
-                User user = new User(unme,Email);
+                String img = null;
+                User user = new User(unme,Email,img);
                 databaseReference.setValue(user);
                 Toast.makeText(EditView.this, "Data Updated", Toast.LENGTH_SHORT).show();
             }
@@ -78,13 +83,18 @@ public class EditView extends AppCompatActivity {
         Intent intent = getIntent();
         String uname = intent.getStringExtra("username");
         String emal = intent.getStringExtra("email");
+        String url = intent.getStringExtra("url");
         String key = intent.getStringExtra("key");
-
-        Log.e("IntentData",uname+"\n"+email+"\n"+key);
+        Log.e("IntentData",uname+"\n"+email+"\n"+key+"\n"+url);
 
         username.setText(uname);
         email.setText(emal);
         pkey = key;
+
+        Glide.with(this)
+                .load(url)
+                .fitCenter()
+                .into(img_view); // use always glide or picasso to retrive
 
        // txt_heading.setText(topic);
        // article.setText(description);

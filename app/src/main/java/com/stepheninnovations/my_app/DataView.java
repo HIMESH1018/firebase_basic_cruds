@@ -23,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.stepheninnovations.my_app.Adapters.ViewAdapter;
 import com.stepheninnovations.my_app.Firebase.DB_User;
 
@@ -38,7 +40,9 @@ public class DataView extends AppCompatActivity implements PopupMenu.OnMenuItemC
     ArrayList<User> users;
     ArrayList<String> keylist;
     String key;
+    private FirebaseStorage storage;
     EditText searchview;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,8 @@ public class DataView extends AppCompatActivity implements PopupMenu.OnMenuItemC
         keylist = new ArrayList<>();
         searchview = findViewById(R.id.searchview);
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
         loadData();
 
 //        searchview.addTextChangedListener(new TextWatcher() {
@@ -128,11 +134,15 @@ public class DataView extends AppCompatActivity implements PopupMenu.OnMenuItemC
                     String mkey = keylist.get(position); // get the key of position
                     Log.e("username ", "" + dta.getUsername());
                     Log.e("email ", "" + dta.getEmail());
+                    Log.e("ImgUrl",""+dta.getUrl());
                     Log.e("pathkey  ", "" +mkey);
+                   // StorageReference httpsReference = storage.getReference(dta.getUrl()+".jpeg");
+                   // Log.e("checkurl",""+httpsReference);
 
                     Intent intent = new Intent(DataView.this, EditView.class);
                     intent.putExtra("username",dta.getUsername());
                     intent.putExtra("email",dta.getEmail());
+                    intent.putExtra("url",dta.getUrl());
                     intent.putExtra("key",mkey);
                     startActivity(intent);
                 }
